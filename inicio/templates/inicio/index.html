@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbots Finazauto</title>
+</head>
+<body>
+<h1 style="text-align: center; background-color: blue; color: aliceblue;">Chatbots Mena</h1>
+<div class="col-sm-6">
+    <div class="float-end d-none d-sm-block">
+<!-- <a href="" class="btn btn-success" style="background-color:#36cfcc;">Agregar Usuario</a> -->
+        <a class="btn btn-success" style="background-color:#36cfcc;" href="/watson">
+            LISTADO
+        </a>
+</div>
+<br>
+<div class="float-end d-none d-sm-block">
+    <!-- <a href="" class="btn btn-success" style="background-color:#36cfcc;">Agregar Usuario</a> -->
+            <a class="btn btn-success" style="background-color:#36cfcc;" href="/cargue">
+                Cargue
+            </a>
+    </div>
+</div>
+<form method="post">
+    {% csrf_token %}
+<h3>Ingrese el nombre del CHATBOT</h3>
+{{form.nombres}}
+<h3>Seleccione el tipo</h3>
+    {{ form.selecc }}
+<h3>Ingrese el skill-ID</h3>
+    {{form.Skill}}
+<h3>Seleccione el estado</h3>
+    {{ form.estado }}
+    <br>
+    <br>
+    <button id="botón">Guardar</button>
+  </form>
+</body>
+</html>

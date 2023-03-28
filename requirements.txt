@@ -1,0 +1,6 @@
+Django
+django-environ
+psycopg2
+random2
+pandas
+ibm-watson

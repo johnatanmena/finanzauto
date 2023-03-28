@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbots Finazauto</title>
+</head>
+<body>
+<h1 style="text-align: center; background-color: blue; color: aliceblue;">Chatbots Mena</h1>
+<div class="col-sm-6">
+    <div class="float-end d-none d-sm-block">
+<!-- <a href="" class="btn btn-success" style="background-color:#36cfcc;">Agregar Usuario</a> -->
+        <a class="btn btn-success" style="background-color:#36cfcc;" href="/watson">
+            LISTADO
+        </a>
+</div>
+</div>
+<div>
+    <form method="post">
+        {% csrf_token %}
+    <h3>Ingrese nombre de la campaña</h3>
+    {{cargo.nombre}}
+    <h3>Seleccione cargue</h3>
+        {{ cargo.chatbot }}
+    <h3>Número de intentos</h3>
+        {{cargo.cantidad_intentos}}
+        <br>
+        <br>
+        <button id="botón">Guardar</button>
+      </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbots Finazauto</title>
+</head>
+<body>
+<h1 style="text-align: center; background-color: blue; color: aliceblue;">Chatbots Mena</h1>
+{% csrf_token %}
+{{ conect }}
+<style>
+    .form-create-user{
+        margin-top: 20px;
+        font-size: 13px;
+    }
+</style>
+<div class="main-content">
+
+    <div class="page-content">
+
+        <!-- start page title -->
+        <div class="page-title-box" style="background-color:#4f2991;">
+            <div class="container-fluid">
+             <div class="row align-items-center">
+                 <div class="col-sm-6">
+                     <div class="page-title">
+                         <h4>Tipo ChatBots</h4>
+                             <!--<ol class="breadcrumb m-0">
+                                 <li class="breadcrumb-item"><a href="javascript: void(0);">Morvin</a></li>
+                                 <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
+                                 <li class="breadcrumb-item active">Dashboard</li>
+                             </ol>-->
+                     </div>
+
+                        </div>
+                            <div class="col-sm-6">
+                            <div class="float-end d-none d-sm-block">
+                        <!-- <a href="" class="btn btn-success" style="background-color:#36cfcc;">Agregar Usuario</a> -->
+                                <a class="btn btn-success" style="background-color:#36cfcc;" href="/">
+                                    INICIO
+                                </a>
+                        </div>
+                 </div>
+             </div>
+            </div>
+         </div>
+         <!-- end page title -->
+
+
+        <div class="container-fluid">
+
+            <div class="page-content-wrapper">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body" style="background-color: white;">
+                                <h4 class="header-title mb-4">PRUEBA</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-centered table-nowrap mb-0" id="tablatipochatbot">
+                                        <thead class="thead-light">
+
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Acciones</th>
+                                                <th>Nombre</th>
+                                                <th style="display: none;">skill-ID</th>
+                                                <th>Estado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for dato in object_list %}
+                                            <tr>
+                                                <td>{{dato.id}}</td>
+                                                <td>{{dato.selecc}}</td>
+                                                <td>{{dato.nombres}}</td>
+                                                <td style="display: none;">{{dato.Skill}}</td>
+                                                <td>{{dato.estado}}</td>
+                                                <form method="POST" action="/watson">
+                                                    {% csrf_token %}
+                                                <input type="hidden" name="seleccion" id="seleccion" value="">
+                                                <td><button id="boton" data-id = "{{dato.Skill}}" >Seleccionar</button></td>
+                                                </form>
+                                                <td><a href="watson/{{dato.id}}">Editar</a></td>
+                                                <td><a href="watson/{{dato.id}}">Eliminar</a></td>
+                                                <!-- data-bs-toggle="modal" data-bs-target="#modaleditar" -->
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- end table-responsive -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div> <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
+
+    <!-- Modal -->
+<!-- Button trigger modal -->
+</div>
+</body>
+</html>
+<script>
+const x = document.querySelectorAll('#boton');
+x.forEach(botones => {
+    botones.addEventListener(('click'),async()=>{
+var dato = botones.dataset.id
+document.getElementById('seleccion').value = botones.dataset.id;
+var d1 =console.log(document.getElementById('seleccion'));
+})
+});
+
+</script>
